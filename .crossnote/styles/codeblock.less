@@ -1,0 +1,68 @@
+@import "variables.less";
+
+@code-background:#1e1e1e;
+@color-keyword: #569cd6;
+@color-comment: #579f38;
+@color-variable: #fff;
+@color-class: #4ec491;
+@color-enum: #b5b05b;
+
+
+// 内联代码块
+html body code {
+    font-family: 'Cascadia Code', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: @color-variable;
+    background-color: transparent;
+    border-radius: 3px;
+    border: @accent-color2 1px solid;
+}
+
+// 代码块样式
+pre[class*=language-] {
+    background-color: @code-background;
+    // color: @neutral-color2;
+    border: @neutral-color2 3px solid;
+}
+
+// 代码块中文本的颜色
+.token.operator { color: #b4b4b4; }
+.token.number { color: #b5cea8; }
+
+.token.builtin,
+.token.important,
+.token.keyword,
+.token.rule {
+    color: @color-keyword;
+}
+
+.token.class,
+.token.class-name {
+    color: @color-class;
+}
+
+.token.function { color: #c1c8a0; }
+
+.token.id,
+.token.namespace,
+.token.pseudo-class,
+.token.pseudo-element {
+    color: @color-variable;
+}
+
+// 字符串
+.token.attr-value { color: #43a4ee; }
+.token.attr-name { color: #c8c8c8; }
+
+.token.regex,
+.token.string,
+.token.url {
+    color: #ce9178;
+}
+
+.token.tag,
+.token.comment,
+.token.token.punctuation.attr-equals,
+.token.tag > .token.punctuation { color: @color-comment;}
+
+// 括号
+.token.punctuation { color: #9c9c9c; }

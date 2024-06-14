@@ -37,10 +37,33 @@
 
 这是一个内联代码块 `code example`
 
-```python {.line-numbers}
-# 这是一个预格式化的代码块
-def hello_world():
-    print("Hello, world!")
+```csharp {.line-numbers}
+namespace ConsoleApp2
+{
+    public enum Animal
+    {
+        Dog,
+        Person,
+        Cat
+    }
+
+    internal class Program
+    {
+        /// <summary>
+        /// wao
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args)
+        {
+            // 这是一个测试
+            int i = 0;
+            var list = new List<int>();
+            list.Where(i => i > 0).ToList();
+
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}
 ```
 
 ## 表格

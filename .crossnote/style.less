@@ -2,36 +2,15 @@
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 
-// 定义 Font Awesome 字体路径和名称
-@fa-font-family: 'Font Awesome 6 Free';
-@fa-solid-font-path: "fonts/fa-solid-900";
-@fa-regular-font-path: "fonts/fa-regular-400";
 
-// 加载 Font Awesome 实心图标字体
-@font-face {
-  font-family: @fa-font-family;
-  src: url('@{fa-solid-font-path}.woff2') format('woff2');
-  font-weight: 900;
-  font-style: normal;
-}
-
-// 加载 Font Awesome 常规图标字体
-@font-face {
-  font-family: @fa-font-family;
-  src: url('@{fa-regular-font-path}.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-@primary-color: #0385ff;    // 主色
-@secondary-color1: #64d3ff; // 辅色1
-@neutral-color1: #262626;   // 中性色1 (黑色)
-@neutral-color2: #4a4a4a;   // 中性色2 (灰色)
-@neutral-color3: #d7d7d7;   // 中性色3 (白色)
-@accent-color1: #ff4337;    // 强调色1 (红色)
-@accent-color2: #ffd703;    // 强调色2 (黄色)
-
+@import "styles/variables.less";
+@import "styles/title.less";
+@import "styles/link.less";
+@import "styles/blockquote.less";
+@import "styles/unorderlist.less";
+@import "styles/orderlist.less";
+@import "styles/codeblock.less";
+@import "styles/table.less";
 
 html body {
   font-family: 'Cascadia Code', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -41,172 +20,9 @@ html body {
   padding: 20px;
 }
 
-// 标题
-html body h1,
-html body h2,
-html body h3,
-html body h4,
-html body h5,
-html body h6 {
-  color: @neutral-color3;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-html body h1 {
-  text-align: center;
-}
-html body h1::after {
-  border-bottom: 2px dashed @neutral-color2;
-  content: '';
-  width: 48%;
-  display: block;
-  margin: .2em auto 0;
-  height: 2px;
-}
-
-html body h2 {
-  padding-left: 12px;
-  padding-bottom: 0;
-  font-size: 1.75em;
-  border-left: 6px solid @neutral-color2;
-}
-
-html body h3 {
-  padding-left: 12px;
-  padding-bottom: 0;
-  font-size: 1.75em;
-  border-left: 6px dotted @neutral-color2 ;
-}
-
-html body h4:before {
-  background-color: @neutral-color2;
-  content: '';
-  display: inline-block;
-  height: 6px;
-  width: 6px;
-  vertical-align: middle;
-  margin-bottom: .18em;
-  margin-right: 12px;
-}
-
-html body h5::before {
-  border-radius: 50%;
-  background-color: @neutral-color2;
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  vertical-align: middle;
-  margin-bottom: .18em;
-  margin-right: 12px;
-}
-
-html body h6::before {
-  background-color: @neutral-color2;
-  content: '';
-  width: 6px;
-  height: 2px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-bottom: .18em;
-  margin-right: 12px
-}
-
-// 链接
-html body a {
-  color: @secondary-color1;
-  text-decoration: none;
-}
-html body a:hover {
-  color: @secondary-color1;
-  text-decoration: underline;
-}
-
 // 段落
 html body p {
   margin: 18px;
   margin-bottom: 15px;
   color: @neutral-color3;
-}
-
-// 引用
-html body blockquote {
-  background-color: @neutral-color2;
-  padding: 8px;
-  border-left-color: @accent-color2;
-  border-left-width: 4px;
-}
-html body blockquote p {
-  margin: 0px;
-  margin-left: 6px;
-}
-
-// 无序列表
-html body ul {
-  list-style: none; /* 移除默认的列表样式 */
-  padding-left: 18px; /* 左侧内边距 */
-  position: relative;
-}
-html body ul ul {
-  padding-left: 18px; /* 子列表的内边距 */
-}
-
-html body ul > li,
-html body ol > li {
-  margin-bottom: 10px;
-  position: relative;
-  color: @neutral-color3; /* 列表项文本颜色 */
-}
-
-// 实现竖线
-html body ul > li:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  height: calc(100% - 14px);
-  top: 24px;
-  left: -15px; /* 竖线的位置 */
-  border-left: 0.5px dashed @neutral-color2;
-}
-
-// 有序列表
-html body ol {
-  counter-reset: list-counter; /* 重置计数器 */
-  list-style: none; /* 移除默认的列表样式 */
-  margin-left: -4px; /* 移除左侧内边距 */
-}
-
-// 实现竖线
-html body ol > li:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  height: calc(100% - 14px);
-  top: 24px;
-  left: -24px; /* 竖线的位置 */
-  border-left: 0.5px dashed @neutral-color2;
-}
-
-.markdown-preview ol {
-  list-style-type: decimal;
-}
-.markdown-preview ol ol {
-  list-style-type: lower-alpha;
-}
-.markdown-preview ol ol ol {
-  list-style-type: lower-greek;
-}
-
-// 内联代码块
-html body code {
-  border-bottom: @accent-color2 1px dashed;
-}
-
-.markdown-preview pre.line-numbers {
-  position: relative;
-  padding-left: 3.8em;
-  counter-reset: linenumber;
-}
-
-html body table {
-  display: table;
 }
