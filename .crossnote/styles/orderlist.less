@@ -1,0 +1,29 @@
+@import "variables.less";
+
+// 有序列表
+html body ol {
+    counter-reset: list-counter; /* 重置计数器 */
+    list-style: none; /* 移除默认的列表样式 */
+    margin-left: -4px; /* 移除左侧内边距 */
+  }
+  
+  // 实现竖线
+  html body ol > li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    height: calc(100% - 14px);
+    top: 24px;
+    left: -24px; /* 竖线的位置 */
+    border-left: 0.5px dashed @neutral-color2;
+  }
+  
+  .markdown-preview ol {
+    list-style-type: decimal;
+  }
+  .markdown-preview ol ol {
+    list-style-type: lower-alpha;
+  }
+  .markdown-preview ol ol ol {
+    list-style-type: lower-greek;
+  }
+  

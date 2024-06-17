@@ -1,0 +1,29 @@
+@import "variables.less";
+
+// 无序列表
+html body ul {
+    list-style: none; /* 移除默认的列表样式 */
+    padding-left: 18px; /* 左侧内边距 */
+    position: relative;
+  }
+  html body ul ul {
+    padding-left: 18px; /* 子列表的内边距 */
+  }
+  
+  html body ul > li,
+  html body ol > li {
+    margin-bottom: 10px;
+    position: relative;
+    color: @neutral-color3; /* 列表项文本颜色 */
+  }
+  
+  // 实现竖线
+  html body ul > li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    height: calc(100% - 14px);
+    top: 24px;
+    left: -15px; /* 竖线的位置 */
+    border-left: 0.5px dashed @neutral-color2;
+  }
+  
