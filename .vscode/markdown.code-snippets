@@ -27,5 +27,13 @@
             "|   |   |"
 		],
 		"description": "Insert a simple table"
+	},
+	"Insert a todo": {
+		"scope": "markdown",
+		"prefix": "todo",
+		"body": [
+			"- [ ] ${0}",
+		],
+		"description": "Insert a todo"
 	}
 }
