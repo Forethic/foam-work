@@ -1,0 +1,73 @@
+@import "variables.less";
+
+// 标题
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6 {
+  color: @neutral-color3;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+html body h1 {
+  text-align: center;
+}
+html body h1::after {
+  border-bottom: 2px dashed @neutral-color2;
+  content: '';
+  width: 48%;
+  display: block;
+  margin: .2em auto 0;
+  height: 2px;
+}
+
+html body h2 {
+  padding-left: 12px;
+  padding-bottom: 0;
+  font-size: 1.75em;
+  border-left: 6px solid @neutral-color2;
+}
+
+html body h3 {
+  padding-left: 12px;
+  padding-bottom: 0;
+  font-size: 1.75em;
+  border-left: 6px dotted @neutral-color2 ;
+}
+
+html body h4:before {
+  background-color: @neutral-color2;
+  content: '';
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  vertical-align: middle;
+  margin-bottom: .18em;
+  margin-right: 12px;
+}
+
+html body h5::before {
+  border-radius: 50%;
+  background-color: @neutral-color2;
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  vertical-align: middle;
+  margin-bottom: .18em;
+  margin-right: 12px;
+}
+
+html body h6::before {
+  background-color: @neutral-color2;
+  content: '';
+  width: 6px;
+  height: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: .18em;
+  margin-right: 12px
+}
