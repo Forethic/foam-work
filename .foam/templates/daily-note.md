@@ -5,3 +5,5 @@ foam_template:
 # $FOAM_DATE_DAY_NAME, $FOAM_DATE_MONTH_NAME $FOAM_DATE_DATE, $FOAM_DATE_YEAR
 
 ## Done List
+
+- [ ] 填写工时
