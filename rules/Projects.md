@@ -38,3 +38,11 @@
 
 1. 增删改 习惯
 2. 习惯统计视图 - GitHub方块图（日历方块）
+
+## Mock-Groove
+
+1. 快捷键
+   1. 上一首 ctrl+shift+alt+left
+   2. 下一首 ctrl+shift+alt+right
+   3. 播放/暂停 ctrl+shift+alt+p
+   4. 快速收藏 ctrl+shift+alt 1/2/3/4/5
