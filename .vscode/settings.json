@@ -34,5 +34,6 @@
   "todo-tree.tree.showBadges": true,
   "todo-tree.tree.showCountsInTree": true,
   "markdown-preview-enhanced.codeBlockTheme": "twilight.css",
-  "markdown-preview-enhanced.previewTheme": "github-dark.css"
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "markdown-preview-enhanced.enableExtendedTableSyntax": true
 }

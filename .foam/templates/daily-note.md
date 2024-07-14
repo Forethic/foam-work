@@ -4,4 +4,23 @@ foam_template:
 ---
 # $FOAM_DATE_DAY_NAME, $FOAM_DATE_MONTH_NAME $FOAM_DATE_DATE, $FOAM_DATE_YEAR
 
-## Done List
+[[GoodHabits]]
+
+## Todo List
+
+- [ ] 记账
+
+## Learn Notes
+
+## Rate
+
+| Item               | Rate | Remark |
+| ------------------ | ---- | ------ |
+| Task Completed     |      |        |
+| Play Kids          |      |        |
+| Do Execrise        |      |        |
+| GoodHabits         |      |        |
+| Spending           |      |        |
+| Life Companionship |      |        |
+
+## Introspection
