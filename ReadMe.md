@@ -7,3 +7,4 @@
 - archived: 自己消化的知识点
 - extract: 看到博客等，本地化存储
 - rules: 生活规则
+- cards: 保存卡片盒记录的知识点
