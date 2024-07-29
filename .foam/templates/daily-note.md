@@ -12,15 +12,4 @@ foam_template:
 
 ## Learn Notes
 
-## Rate
-
-| Item               | Rate | Remark |
-| ------------------ | ---- | ------ |
-| Task Completed     |      |        |
-| Play Kids          |      |        |
-| Do Execrise        |      |        |
-| GoodHabits         |      |        |
-| Spending           |      |        |
-| Life Companionship |      |        |
-
 ## Introspection
