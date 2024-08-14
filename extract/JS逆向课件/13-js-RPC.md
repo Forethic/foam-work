@@ -178,7 +178,7 @@ function guid() {
 }
 // 连接服务端
 var client = new SekiroClient(
-  "ws://127.0.0.1:5620/business-demo/register?group=ws-group&clientId=" + guid()
+  "ws://127.0.0.1:5612/business-demo/register?group=ws-group&clientId=" + guid()
 );
 // 业务接口
 client.registerAction("登陆", function (request, resolve, reject) {
@@ -233,7 +233,7 @@ client.registerAction("登陆", function (request, resolve, reject) {
       }
 
       var client = new SekiroClient(
-        "ws://127.0.0.1:5620/business-demo/register?group=rpc-test&clientId=" +
+        "ws://127.0.0.1:5612/business-demo/register?group=rpc-test&clientId=" +
           guid()
       );
 
@@ -249,11 +249,11 @@ client.registerAction("登陆", function (request, resolve, reject) {
 
 `Sekiro` 为我们提供了一些 API
 
-- 查看分组列表：http://127.0.0.1:5620/business-demo/groupList
+- 查看分组列表：http://127.0.0.1:5612/business-demo/groupList
 
-- 查看队列状态：http://127.0.0.1:5620/business-demo/clientQueue?group=test
+- 查看队列状态：http://127.0.0.1:5612/business-demo/clientQueue?group=test
 
-- 调用转发：http://127.0.0.1:5620/business-demo/invoke?group=test&action=test&param=testparm
+- 调用转发：http://127.0.0.1:5612/business-demo/invoke?group=test&action=test&param=testparm
 
 ##### 13.2.2.3 python 代码调试
 
@@ -268,7 +268,7 @@ import requests
 data = {"group": "rpc-test",
         "action": "clientTime",
         }
-res = requests.get("http://127.0.0.1:5620/business-demo/invoke",params=data )
+res = requests.get("http://127.0.0.1:5612/business-demo/invoke",params=data )
 print(res.text)
 ```
 
@@ -326,7 +326,7 @@ function guid() {
 }
 
 var client = new SekiroClient(
-  "ws://127.0.0.1:5620/business-demo/register?group=rpc-test&clientId=" + guid()
+  "ws://127.0.0.1:5612/business-demo/register?group=rpc-test&clientId=" + guid()
 );
 
 client.registerAction("ths", function (request, resolve, reject) {
@@ -370,7 +370,7 @@ client.registerAction("ths", function (request, resolve, reject) {
   }
   function startSekiro() {
     var client = new SekiroClient(
-      "ws://127.0.0.1:5620/business-demo/register?group=rpc-demo&clientId=" +
+      "ws://127.0.0.1:5612/business-demo/register?group=rpc-demo&clientId=" +
         guid()
     );
 
@@ -444,7 +444,7 @@ def get_sig():
         'e':seed,
         'i': ts
     }
-    res = requests.post(url="http://127.0.0.1:5620/business-demo/invoke", data=data, verify=False)
+    res = requests.post(url="http://127.0.0.1:5612/business-demo/invoke", data=data, verify=False)
     if res.status_code == 200:
         return res.json().get('data')
 # print(get_sig())
