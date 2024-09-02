@@ -10,7 +10,6 @@
 		"scope": "markdown",
 		"prefix": "code",
 		"body": [
-			"",
 			"```$1 {.line-numbers}",
 			"$2",
 			"```",
@@ -35,5 +34,16 @@
 			"- [ ] ${0}",
 		],
 		"description": "Insert a todo"
-	}
+	},
+	"Insert a csharp code block": {
+		"scope": "markdown",
+		"prefix": "cs",
+		"body": [
+			"```csharp {.line-numbers}",
+			"$1",
+			"```",
+			"",
+		],
+		"description": "得到一个带语法高亮和行号的代码块模板"
+	},
 }

@@ -7,14 +7,14 @@ foam_template:
 
 ## Detail
 
-| Day   | Detail | Completed |
-| ----- | ------ | --------- |
-| Mon.  |        |           |
-| Tue.  |        |           |
-| Wed.  |        |           |
-| Thur. |        |           |
-| Fri.  |        |           |
-| Sat.  |        |           |
-| Sun.  |        |           |
+| Day   | Detail | Completed | Sleep | Nap | Total |
+| ----- | ------ | --------- | ----- | --- | ----- |
+| Mon.  |        |           |       |     |       |
+| Tue.  |        |           |       |     |       |
+| Wed.  |        |           |       |     |       |
+| Thur. |        |           |       |     |       |
+| Fri.  |        |           |       |     |       |
+| Sat.  |        |           |       |     |       |
+| Sun.  |        |           |       |     |       |
 
 ## Summary
