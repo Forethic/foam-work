@@ -15,3 +15,7 @@
    1. vs2019 HKEY_CLASSES_ROOT\Licenses\41717607-F34E-432C-A138-A3CFD7E25CDA
    2. vs2022 HKEY_CLASSES_ROOT\Licenses\1299B4B9-DFCC-
 2. 运行 visual studio installer 进行修复
+
+## 常用快捷键
+
+![alt text](<../../assets/images/visual_studio_ default_shortcuts.png>)
