@@ -20,7 +20,7 @@ foam_template:
 
 ## Cost
 
-|    Date    | Type | Label |    Account     | Price |
-| :--------: | :--: | :---: | :------------: | ----: |
+|    Date    |       Source       |        Desination        | Decimal | Remark      |
+| :--------: | :----------------: | :----------------------: | ------: | ----------- |
 
 ## Summary
