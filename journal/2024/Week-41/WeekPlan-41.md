@@ -33,7 +33,7 @@
 | 2024-10-09 | Liabilities:Huabei |   Expenses:Dialy:Bowl    |    11.6 | 面碗 2.9x4       |
 | 2024-10-09 |   Assets:Wechat    |   Expenses:Food:Lunch    |      12 |                  |
 | 2024-10-09 | Liabilities:Huabei |       Expenses:VIP       |    28.0 | 饿了么超级吃货卡 |
-| 2024-10-10 |    Assets:4375     | Expenses:House:Electric  |   28.98 |                  |
+| 2024-10-10 |    Assets:3475     | Expenses:House:Electric  |   28.98 |                  |
 | 2024-10-10 |   Assets:Wechat    |   Expenses:Food:Lunch    |      12 |                  |
 | 2024-10-11 |   Assets:Wechat    |   Expenses:Food:Lunch    |      12 |                  |
 | 2024-10-12 |   Assets:Wechat    |   Expenses:Food:Lunch    |      12 |                  |
