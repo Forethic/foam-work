@@ -4,9 +4,11 @@
 
 ## 功能模块
 
-- [[TrueGear_日志模块]]
-- [[TrueGear_UI模块]]
-- [[TrueGear_打包模块]]
-- [[TrueGear_用户配置模块]]
-- [[TrueGear_特殊文件夹]]
-- [[TrueGear_Nuget模块]]
+- [[1_version]]
+- [[2_nuget]]
+- [[3_UI]]
+- [[4_package]]
+- [[5_log]]
+- [[6_file_system夹]]
+- [[7_user_settings]]
+- [[9_term]]
