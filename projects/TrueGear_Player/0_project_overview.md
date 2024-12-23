@@ -9,6 +9,6 @@
 - [[3_UI]]
 - [[4_package]]
 - [[5_log]]
-- [[6_file_system夹]]
+- [[6_file_system]]
 - [[7_user_settings]]
 - [[9_term]]
