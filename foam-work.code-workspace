@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.defaultLanguage": "markdown",
+		"foam.edit.linkReferenceDefinitions": "off",
+		"foam.openDailyNote.directory": "journal",
+		"foam.openDailyNote.titleFormat": "fullDate",
+		"foam.openDailyNote.onStartup": false,
+		"pasteImage.path": "${projectRoot}/assets/images",
+		"pasteImage.showFilePathConfirmInputBox": true,
+		"todo-tree.tree.disableCompactFolders": false,
+		"todo-tree.tree.showBadges": true,
+		"todo-tree.tree.showCountsInTree": true,
+		"markdown-preview-enhanced.codeBlockTheme": "twilight.css",
+		"markdown-preview-enhanced.previewTheme": "github-dark.css"
+	}
+}
