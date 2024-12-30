@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "E:/OneDrive/Documents/foam-life"
+		}
+	],
+	"settings": {
+		"files.defaultLanguage": "markdown",
+		"foam.edit.linkReferenceDefinitions": "off",
+		"foam.openDailyNote.directory": "journal",
+		"foam.openDailyNote.titleFormat": "fullDate",
+		"foam.openDailyNote.onStartup": true,
+		"pasteImage.path": "${projectRoot}/assets/images",
+		"pasteImage.showFilePathConfirmInputBox": true,
+		"todo-tree.tree.disableCompactFolders": false,
+		"todo-tree.tree.showBadges": true,
+		"todo-tree.tree.showCountsInTree": true,
+		"markdown-preview-enhanced.codeBlockTheme": "twilight.css",
+		"markdown-preview-enhanced.previewTheme": "github-dark.css",
+		"markdown-preview-enhanced.enableExtendedTableSyntax": true
+	}
+}
