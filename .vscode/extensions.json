@@ -9,6 +9,9 @@
     "kiranmachhewar.markdown-enhanced-code-block",
     "takumii.markdowntable",
     "davidanson.vscode-markdownlint",
-    "gruntfuggly.todo-tree"
+    "gruntfuggly.todo-tree",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    "dkundel.vscode-new-file"
   ]
 }

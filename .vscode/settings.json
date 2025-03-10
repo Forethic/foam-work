@@ -2,6 +2,7 @@
   "editor.minimap.enabled": false,
   "editor.wrappingIndent": "indent",
   "editor.overviewRulerBorder": false,
+  "editor.formatOnSave": true,
   "editor.lineHeight": 24,
   "[markdown]": {
     "editor.quickSuggestions": {
@@ -28,7 +29,8 @@
   "pasteImage.showFilePathConfirmInputBox": true,
   "prettier.singleQuote": false,
   "markdownlint.config": {
-    "MD033": false
+    "MD033": false,
+    "MD029": false
   },
   "todo-tree.tree.disableCompactFolders": false,
   "todo-tree.tree.showBadges": true,
