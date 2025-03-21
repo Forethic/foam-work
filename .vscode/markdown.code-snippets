@@ -22,9 +22,9 @@
 		"scope": "markdown",
 		"prefix": "table",
 		"body": [
-            "|${0:title} |  |",
-            "| - | - |",
-            "|   |   |"
+			"|${0:title} |  |",
+			"| - | - |",
+			"|   |   |"
 		],
 		"description": "Insert a simple table"
 	},
@@ -33,6 +33,18 @@
 		"prefix": "todo",
 		"body": [
 			"- [ ] ${0}",
+		],
+		"description": "Insert a todo"
+	},
+	"Insert a task": {
+		"scope": "markdown",
+		"prefix": "task",
+		"body": [
+			"- **任务名称**: ${1}",
+			"- **截止时间**: ${2}",
+			"- **预计耗时**: ${3}",
+			"- **状态**: 未开始",
+			"- **描述**: ${4}"
 		],
 		"description": "Insert a todo"
 	}
