@@ -12,6 +12,7 @@
     "gruntfuggly.todo-tree",
     "mhutchie.git-graph",
     "donjayamanne.githistory",
-    "dkundel.vscode-new-file"
+    "dkundel.vscode-new-file",
+    "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
   ]
 }
