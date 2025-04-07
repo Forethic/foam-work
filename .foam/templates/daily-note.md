@@ -1,15 +1,18 @@
 ---
 foam_template:
-  filepath: "journal\\$FOAM_DATE_YEAR\\$FOAM_DATE_MONTH-$FOAM_DATE_MONTH_NAME_SHORT\\Week-$FOAM_DATE_WEEK\\$FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE.md"
+  filepath: "journal\\$FOAM_DATE_YEAR\\Week-$FOAM_DATE_WEEK\\$FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE.md"
 ---
 # $FOAM_DATE_DAY_NAME, $FOAM_DATE_MONTH_NAME $FOAM_DATE_DATE, $FOAM_DATE_YEAR
 
 ## 今日目标 （ABC）
 
-| 按ABC分类 | 起止时间 | 今日事项 要事第一  | 完成情况 |
-| --------- | -------- | ------------------ | -------- |
-| A         | 下班前   | 钉钉日报，微信日报 |          |
-| 完成率    |          |                    |          |
+### B 下班前必做任务
+
+- [ ] 今日总结
+- [ ] 明日计划
+- [ ] 打卡
+- [ ] 发送微信日报
+- [ ] 钉钉日报
 
 ---
 
@@ -39,3 +42,5 @@ foam_template:
 | 自信         |      |
 | 爱与奉献     |      |
 | 决不找借口   |      |
+
+## 工作日报

@@ -1,6 +1,6 @@
 ---
 foam_template:
-  filepath: "journal\\$FOAM_DATE_YEAR\\$FOAM_DATE_MONTH-$FOAM_DATE_MONTH_NAME_SHORT\\Week-$FOAM_DATE_WEEK\\Week$FOAM_DATE_WEEK-Summary.md"
+  filepath: "journal\\$FOAM_DATE_YEAR\\Week-$FOAM_DATE_WEEK\\Week$FOAM_DATE_WEEK-Summary.md"
 ---
 # $FOAM_DATE_YEAR-$FOAM_DATE_WEEK 周总结
 
