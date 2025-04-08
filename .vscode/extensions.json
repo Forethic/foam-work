@@ -13,6 +13,9 @@
     "mhutchie.git-graph",
     "donjayamanne.githistory",
     "dkundel.vscode-new-file",
-    "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+    "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+    "esbenp.prettier-vscode",
+    "raer0.codium-insertdatestring",
+    "techer.open-in-browser"
   ]
 }
