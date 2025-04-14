@@ -9,3 +9,4 @@
 | CCP云计算管理平台       | <https://10.10.1.101:9250>  | admin   | ruijie@123 |
 | SAG安全访问网关管理平台 | <https://10.10.1.103:8443>  | admin   | ruijie@123 |
 | 锐捷云桌面Web端         | <https://10.10.1.101:9101/> | test    | Ruijie123  |
+| 文件透明加密密钥        |                             |         | FJhzgcjs@123 |
