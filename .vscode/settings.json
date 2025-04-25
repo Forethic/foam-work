@@ -30,7 +30,8 @@
   "prettier.singleQuote": false,
   "markdownlint.config": {
     "MD033": false,
-    "MD029": false
+    "MD029": false,
+    "MD018": false
   },
   "todo-tree.tree.disableCompactFolders": false,
   "todo-tree.tree.showBadges": true,
