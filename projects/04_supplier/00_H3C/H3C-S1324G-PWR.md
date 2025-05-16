@@ -1,6 +1,6 @@
 # H3C S1324G-PWR 全千兆以太网交换机
 
-![H3C-S1324G-PWR](assets/H3C-S1324G-PWR.png)
+![H3C-S1324G-PWR](../../../assets/images/9234ed92-b1f1-4871-8d11-c82f761fdbfd.png)
 
 - 符合IEEE 802.3 10Base-T，IEEE 802.3u 100Base-TX，IEEE802.3x和IEEE802.3ab 1000Base-T标准；
 - 全线速的二层千兆交换能力，保证所有端口无阻塞进行报文转发；

@@ -1,6 +1,6 @@
 # TL-SE2109PB 2.5G云管理PoE交换机
 
-![TL-SE2109PB](assets/TL-SE2109PB.png)
+![TL-SE2109PB](../../../assets/images/e0f3eba7-a88a-4640-a393-53df9c480d8c.png)
 
 - 8个10/100/1000/2500Mbps RJ45端口（支持标准PoE++供电）
 - 1个1/2.5/10Gbps SFP+端口

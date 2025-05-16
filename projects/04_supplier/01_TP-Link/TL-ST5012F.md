@@ -1,6 +1,6 @@
 # TL-ST5012F 全万兆三层网管交换机
 
-![alt text](image.png)
+![TL-ST5012F](../../../assets/images/86444379-14fe-4801-bf2c-a3fc7f550796.png)
 
 - 12个万兆SFP+端口
 - 支持Type-C Console口
