@@ -4,11 +4,18 @@
   "recommendations": [
     "foam.foam-vscode",
     "yzhang.markdown-all-in-one",
-    "mushan.vscode-paste-image",
     "shd101wyy.markdown-preview-enhanced",
     "kiranmachhewar.markdown-enhanced-code-block",
     "takumii.markdowntable",
     "davidanson.vscode-markdownlint",
-    "gruntfuggly.todo-tree"
+    "gruntfuggly.todo-tree",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    "dkundel.vscode-new-file",
+    "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+    "esbenp.prettier-vscode",
+    "raer0.codium-insertdatestring",
+    "techer.open-in-browser",
+    "telesoho.vscode-markdown-paste-image"
   ]
 }

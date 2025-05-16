@@ -2,6 +2,7 @@
   "editor.minimap.enabled": false,
   "editor.wrappingIndent": "indent",
   "editor.overviewRulerBorder": false,
+  "editor.formatOnSave": true,
   "editor.lineHeight": 24,
   "[markdown]": {
     "editor.quickSuggestions": {
@@ -24,11 +25,14 @@
   "git.enableSmartCommit": true,
   "git.postCommitCommand": "sync",
   "markdown.preview.breaks": true,
-  "pasteImage.path": "${projectRoot}/assets/images",
-  "pasteImage.showFilePathConfirmInputBox": true,
+  "MarkdownPaste.path": "${workspaceFolder}/assets/images/",
+  "MarkdownPaste.nameBase": "${uuid}",
+  "MarkdownPaste.silence": true,
   "prettier.singleQuote": false,
   "markdownlint.config": {
-    "MD033": false
+    "MD033": false,
+    "MD029": false,
+    "MD018": false
   },
   "todo-tree.tree.disableCompactFolders": false,
   "todo-tree.tree.showBadges": true,
