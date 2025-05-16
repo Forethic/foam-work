@@ -1,15 +1,21 @@
 ---
 foam_template:
-  filepath: "journal\\$FOAM_DATE_YEAR\\$FOAM_DATE_MONTH-$FOAM_DATE_MONTH_NAME_SHORT\\Week-$FOAM_DATE_WEEK\\$FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE.md"
+  filepath: "journal\\$FOAM_DATE_YEAR\\Week-$FOAM_DATE_WEEK\\$FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE.md"
 ---
 # $FOAM_DATE_DAY_NAME, $FOAM_DATE_MONTH_NAME $FOAM_DATE_DATE, $FOAM_DATE_YEAR
 
 ## 今日目标 （ABC）
 
-| 按ABC分类 | 起止时间 | 今日事项 要事第一 | 完成情况 |
-| --------- | -------- | ----------------- | -------- |
-|           |          |                   |          |
-| 完成率    |          |                   |          |
+[[DialyTask_$FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE]]
+
+---
+
+## 健康统计
+
+- [ ] 饮水2L
+  - [ ] 600ml
+  - [ ] 600ml
+  - [ ] 600ml
 
 ---
 
