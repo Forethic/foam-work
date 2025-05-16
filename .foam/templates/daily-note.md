@@ -8,7 +8,14 @@ foam_template:
 
 [[DialyTask_$FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE]]
 
-### 总结
+---
+
+## 健康统计
+
+- [ ] 饮水2L
+  - [ ] 600ml
+  - [ ] 600ml
+  - [ ] 600ml
 
 ---
 
