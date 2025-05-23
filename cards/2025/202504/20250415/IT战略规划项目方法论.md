@@ -2,7 +2,7 @@
 
 ## 德勤
 
-![alt text](image.png)
+![架构模型举例](../../../../assets/images/41896686-2c07-4efa-a494-4719b3077ccd.png)
 
 1. 现状评估与需求分析阶段
    1. 战略及业务发展趋势分析
@@ -40,6 +40,6 @@
 
 ## IBM
 
-![alt text](image-1.png)
+![IBM咨询方法论](../../../../assets/images/6ed6d019-91d8-4cc1-8e96-94bd090903f5.png)
 
 ## 凯捷
