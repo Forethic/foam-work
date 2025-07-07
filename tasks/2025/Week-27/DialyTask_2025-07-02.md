@@ -1,8 +1,4 @@
----
-foam_template:
-  filepath: "tasks\\$FOAM_DATE_YEAR\\Week-$FOAM_DATE_WEEK\\DialyTask_$FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE.md"
----
-# $FOAM_DATE_YEAR-$FOAM_DATE_MONTH-$FOAM_DATE_DATE 工作内容
+# 2025-07-02 工作内容
 
 ## 工作内容
 
