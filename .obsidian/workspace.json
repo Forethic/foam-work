@@ -11,17 +11,14 @@
             "id": "d0f6a3de8a684ac3",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": -175,
-                  "y": 30,
-                  "zoom": 0
-                }
+                "file": "30_areas/32_professional/32.01_Huazhi/_areas/IT_Infrastructure/_private/temp_credentials.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "temp_credentials"
             }
           }
         ]
@@ -81,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "191fb488ed667277",
@@ -150,6 +148,20 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "8f7bf91cb9cc55eb",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
           }
         ]
       }
@@ -171,6 +183,13 @@
   },
   "active": "d0f6a3de8a684ac3",
   "lastOpenFiles": [
+    "40_tasks/1_doing/邮箱搬家-新账号分配与通知.md",
+    "40_tasks/0_todo/邮箱搬家-数据备份与迁移.md",
+    "40_tasks/0_todo/与锐捷进行线下沟通交流.md",
+    "40_tasks/0_todo/邮箱搬家-新账号分配与通知.md",
+    "30_areas/32_professional/32.01_Huazhi/_areas/IT_Infrastructure/_private/temp_credentials.md",
+    "2025-09-18.md",
+    "10_journal/2025/Week-38/2025-09-18.md",
     "未命名.canvas",
     "40_tasks/0_todo/使用UFS-Explorer恢复虚拟机数据.md",
     "10_journal/2025/Week-38/2025-09-17.md",
