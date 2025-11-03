@@ -47,5 +47,13 @@
 			"- **描述**: ${4}"
 		],
 		"description": "Insert a todo"
+	},
+	"Insert a fleeting note": {
+		"scope": "markdown",
+		"prefix": "timestamp",
+		"body": [
+			"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE"
+		],
+		"description": "Insert a fleeting note with timestamp"
 	}
 }
