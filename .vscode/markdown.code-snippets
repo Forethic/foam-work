@@ -55,5 +55,13 @@
 			"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE"
 		],
 		"description": "Insert a fleeting note with timestamp"
+	},
+	"Insert a date": {
+		"scope": "markdown",
+		"prefix": "date",
+		"body": [
+			"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+		],
+		"description": "Insert current date"
 	}
 }
