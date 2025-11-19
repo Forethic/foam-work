@@ -15,12 +15,12 @@
 
 ### 2. 跨平台一致性与高效同步
 
-**功能需求：** 用户需要在移动端和桌面端无缝切换，数据实时同步，且能够快速响应操作。
+**功能需求：** 用户需要在移动端和桌面端无缝切换，数据实时同步，且能够快速响应操作。这涉及到复杂的离线优先和数据一致性挑战。
 
 **架构支撑：**
 
-- **前端 (.NET MAUI):** 实现真正的跨平台原生应用体验，确保移动端和桌面端界面和交互的一致性。
-- **核心同步逻辑:** 负责结构化数据 (数据库) 与前端展示/编辑内容之间的双向同步。通过Web API进行数据传输，并可结合SignalR等技术实现实时推送，确保数据在不同设备间的即时更新。
+- **前端 (Avalonia UI):** 为了实现极致的 UI 品牌化和桌面端智能编辑体验，我们选择 **Avalonia UI** 作为唯一的跨平台 UI 框架，负责所有平台（Windows, macOS, Linux, iOS, Android）的 UI 渲染。
+- **核心同步逻辑:** 我们设计了一套基于“本地伪CQRS + 服务端完整CQRS”的同步方案，以应对复杂的离线和多端同步场景。详细设计请参阅：[[synchronization-design]]
 
 ### 3. 桌面端智能编辑体验
 
@@ -28,7 +28,7 @@
 
 **架构支撑：**
 
-- **前端 (.NET MAUI 桌面应用):** 内置一个强大的富文本/代码编辑器组件（例如基于Avalonia UI或Blazor Hybrid的自定义编辑器）。
+- **前端 (Avalonia UI 桌面应用):** 内置一个强大的富文本/代码编辑器组件。为了追求**极致的桌面端智能编辑体验和高度品牌化**的 UI 风格，我们将选择 **Avalonia UI** 来实现这部分。Avalonia UI 提供了类似 WPF 的自绘能力，可借鉴 RoslynPad 的成功经验。
 - **自定义语法解析器:** 在前端实现一个轻量级的解析器，能够识别用户定义的特定语法（例如用于创建任务、记录财务交易的简写），并进行实时解析。
 - **智能提示模块:** 基于当前编辑内容和数据库中的已有数据，提供智能的数据提示和关键词自动补全功能。
 - **结构化预览:** 编辑器能够实时将解析后的内容渲染为结构化的预览视图，让用户在提交前确认效果。
@@ -41,7 +41,7 @@
 **架构支撑：**
 
 - **后端数据处理:** 后端API除了基本CRUD操作外，还需提供数据聚合、统计分析的接口。
-- **前端可视化组件:** 利用.NET MAUI强大的UI能力，集成图表库（如Microcharts、OxyPlot）来渲染各种财务报表、习惯进度图表、日程概览、健康趋势图等。
+- **前端可视化组件:** 利用 Avalonia UI 强大的 UI 能力，集成图表库（如 LiveCharts2, OxyPlot for Avalonia）来渲染各种财务报表、习惯进度图表、日程概览、健康趋势图等。
 
 ## 架构图
 
@@ -50,8 +50,8 @@
 ```mermaid
 graph TD
     subgraph "用户设备 (Clients)"
-        C1[📱 移动应用 (.NET MAUI)]
-        C2[💻 桌面应用 (.NET MAUI) <br> (内置自定义语法编辑器)]
+        C1[📱 移动应用 (Avalonia UI)]
+        C2[💻 桌面应用 (Avalonia UI) <br> (内置自定义语法编辑器)]
     end
 
     subgraph "云端服务 (Backend)"
@@ -82,202 +82,11 @@ graph TD
     style DB fill:#FDEDEC,stroke:#E74C3C
 ```
 
-## 数据库设计 (MVP)
+## 数据库设计
 
-```mermaid
-erDiagram
-    Users {
-        string Id PK "用户ID (GUID)"
-        string Username
-        string HashedPassword
-        datetime CreatedAt
-    }
+我们采用了“元数据驱动”的抽象化模型，其详细的数据库实体关系图（ERD）已被分离到专门的文档中，以便于维护和查阅。
 
-    Notes {
-        string Id PK "笔记ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        text Content "笔记正文 (自定义语法/结构化)"
-        datetime CreatedAt "创建时间"
-        datetime UpdatedAt "最后修改时间"
-        boolean IsDeleted "软删除标记"
-    }
-    
-    Tasks {
-        string Id PK "任务ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        string Title "任务标题"
-        datetime DueDate "截止日期"
-        string Status "状态 (待办/进行中/完成)"
-        string Priority "优先级"
-        string ParentNoteId FK "关联笔记ID (可选)"
-        datetime CreatedAt
-        datetime UpdatedAt
-    }
-
-    Habits {
-        string Id PK "习惯ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        string Name "习惯名称"
-        string Goal "量化目标"
-        string Frequency "频率 (每日/每周/每月)"
-        datetime CreatedAt
-        datetime UpdatedAt
-    }
-    
-    HabitLogs {
-        string Id PK "打卡记录ID (GUID)"
-        string HabitId FK "外键: 关联到Habits"
-        datetime LogDate "打卡日期"
-        int Value "量化值 (如阅读分钟数)"
-        string Status "状态 (完成/跳过)"
-        datetime CreatedAt
-    }
-
-    Accounts {
-        string Id PK "账户ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        string Name "账户名称"
-        string Type "账户类型 (现金/银行卡/投资/负债)"
-        decimal InitialBalance "初始余额"
-        string Currency "币种"
-        datetime CreatedAt
-    }
-    
-    Transactions {
-        string Id PK "交易ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        string Description "交易描述"
-        datetime TransactionDate "交易日期"
-        decimal Amount "金额"
-        string Type "交易类型 (收入/支出/转账)"
-        string Category "分类"
-        string AccountId FK "关联账户ID"
-        datetime CreatedAt
-    }
-
-    Courses {
-        string Id PK "课程ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        string Name "课程名称"
-        string Description "课程描述"
-        string Goal "学习目标"
-        string Status "状态 (未开始/进行中/已完成)"
-        datetime CreatedAt
-        datetime UpdatedAt
-    }
-
-    LearningTasks {
-        string Id PK "学习任务ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        string CourseId FK "外键: 关联到Courses"
-        string Title "任务标题"
-        string Description "任务描述"
-        datetime DueDate "截止日期"
-        string Status "状态 (未开始/进行中/已完成)"
-        int ExpectedStudyTime "预计学习时长(分钟)"
-        int ActualStudyTime "实际学习时长(分钟)"
-        string AssociatedNoteId FK "关联笔记ID (可选)"
-        datetime CreatedAt
-        datetime UpdatedAt
-    }
-
-    Exams {
-        string Id PK "考试ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        string CourseId FK "外键: 关联到Courses (可选)"
-        string Name "考试名称"
-        datetime ExamDate "考试日期"
-        decimal Score "分数"
-        decimal TargetScore "目标分数"
-        string AttachmentUrls "附件链接 (JSON数组)"
-        datetime CreatedAt
-        datetime UpdatedAt
-    }
-
-    WrongQuestions {
-        string Id PK "错题ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        string ExamId FK "外键: 关联到Exams (可选)"
-        string Question "题目内容"
-        string CorrectAnswer "正确答案"
-        string UserAnswer "用户答案"
-        text Analysis "解析"
-        string ReasonForError "错误原因"
-        string Tags "标签 (JSON数组)"
-        datetime ReviewDate "下次复习日期"
-        datetime CreatedAt
-        datetime UpdatedAt
-        datetime LastReviewDate "上次复习日期"
-        datetime NextReviewDate "下次复习日期"
-        int ReviewInterval "复习间隔 (天)"
-        decimal EasinessFactor "简易度因子 (用于SM-2算法)"
-        int RepetitionCount "重复次数"
-    }
-
-    HealthMetrics {
-        string Id PK "健康指标ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        string MetricType "指标类型 (如体重、血压、血糖)"
-        decimal Value "指标数值"
-        datetime RecordDate "记录日期"
-        string Unit "单位 (如kg, mmHg)"
-        datetime CreatedAt
-    }
-
-    Meals {
-        string Id PK "餐食ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        datetime MealDate "餐食日期"
-        string MealType "餐次 (早餐、午餐、晚餐、加餐)"
-        text Description "餐食描述"
-        decimal Calories "卡路里"
-        decimal Protein "蛋白质 (g)"
-        decimal Fat "脂肪 (g)"
-        decimal Carbs "碳水化合物 (g)"
-        datetime CreatedAt
-    }
-
-    Exercises {
-        string Id PK "运动记录ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        datetime ExerciseDate "运动日期"
-        string ExerciseType "运动类型 (如跑步、游泳、力量训练)"
-        decimal Duration "时长 (分钟)"
-        decimal Distance "距离 (km)"
-        decimal CaloriesBurned "消耗卡路里"
-        datetime CreatedAt
-    }
-
-    SleepRecords {
-        string Id PK "睡眠记录ID (GUID)"
-        string UserId FK "外键: 关联到Users"
-        datetime SleepDate "睡眠日期"
-        datetime StartTime "入睡时间"
-        datetime EndTime "醒来时间"
-        decimal TotalSleepDuration "总睡眠时长 (小时)"
-        decimal DeepSleepDuration "深睡时长 (小时)"
-        decimal LightSleepDuration "浅睡时长 (小时)"
-        int WakeUpCount "醒来次数"
-        datetime CreatedAt
-    }
-
-    Users ||--o{ Notes : "拥有"
-    Users ||--o{ Tasks : "管理"
-    Users ||--o{ Habits : "养成"
-    Users ||--o{ Accounts : "管理"
-    Users ||--o{ Courses : "管理"
-    Users ||--o{ HealthMetrics : "记录"
-    Users ||--o{ Meals : "记录"
-    Users ||--o{ Exercises : "记录"
-    Users ||--o{ SleepRecords : "记录"
-    Habits ||--o{ HabitLogs : "记录"
-    Accounts ||--o{ Transactions : "包含"
-    Notes ||--o{ Tasks : "可生成"
-    Courses ||--o{ LearningTasks : "包含"
-    Courses ||--o{ Exams : "包含"
-    Exams ||--o{ WrongQuestions : "产生"
-    Notes ||--o{ LearningTasks : "关联"
-```
+**请参阅**: [[database-schema]]
 
 ## 架构可扩展性评估与渐进式演进建议
 
@@ -296,22 +105,22 @@ erDiagram
     - 模块之间通过内部接口或事件进行通信，避免直接调用其他模块的实现细节。
     - 前端 (.NET MAUI) 也采用类似的模块化和组件化设计，每个功能模块对应一个或多个UI组件。
 
-### 2. **数据存储策略：以 PostgreSQL 为主，预留多模扩展**
+### 2. **数据存储策略：元数据驱动与多模扩展**
 
-- **挑战：** 随着数据类型多样化，单一关系型数据库可能在某些场景下表现不佳。
-- **改进建议：** 初始阶段继续以 **PostgreSQL** 作为主要数据存储。
-  - **优点：** PostgreSQL 功能强大，足以支撑MVP阶段的所有结构化数据和大部分非结构化数据（如通过 JSONB 字段存储）。
-  - **实施策略：** 在数据模型设计时，对未来可能需要独立存储的数据类型（如知识图谱的图形数据、时序数据）进行识别和标记。在数据量和业务复杂度达到一定程度时，再考虑引入**多模数据库**，例如：
-    - **知识图谱：** 考虑 Neo4j 等图数据库。
-    - **非结构化文档：** 考虑 MongoDB 等文档数据库。
-    - **时序数据：** 考虑 InfluxDB 等时序数据库。
+- **挑战：** 为了实现“全能软件生态”的愿景，系统必须能够灵活应对未来不断增加的、多样化的功能需求。传统的“为每个功能建一张表”设计模式，会使系统迅速僵化。
+- **核心决策：** 我们采纳**元数据驱动设计 (MDD / EAV)** 的抽象化数据模型，将“万物”抽象为 `Items`, `Properties`, `Values` 和 `Relations`。这是实现终极灵活性的基石。详细设计请参阅：[[database-schema]]
+- **实施策略：**
+  - **以 PostgreSQL 为起点:** PostgreSQL 强大的功能（如 JSONB、分区表）足以支撑 MDD 模型在 MVP 及后续增长阶段的性能需求。
+  - **预留多模扩展:** MDD 模型与多模数据库思想天然契合。未来可将特定类型的数据（如 `Relations` -> Neo4j, `Items` 的只读副本 -> Elasticsearch）平滑迁移至更专业的数据库中，而无需改变核心业务逻辑，而无需改变核心业务逻辑。
 
-### 3. **实时能力与事件驱动：渐进式引入消息队列**
+### 3. **实时能力与事件驱动：拥抱CQRS与事件驱动**
 
-- **挑战：** 随着实时协作、智能推荐、自动化等功能的增加，需要更强大的实时处理能力和异步通信机制。
-- **改进建议：** 渐进式引入**消息队列（Message Queue）**。
-  - **优点：** 在模块化单体内部，消息队列可以作为模块间异步通信的机制，减少直接依赖，提高系统响应速度。
-  - **实施策略：** 初始阶段可以使用轻量级的内部消息总线或直接的事件发布/订阅模式。随着业务复杂性增加，再引入成熟的消息队列服务（如 RabbitMQ, Kafka），以支持更复杂的事件驱动架构和跨服务通信。
+- **挑战：** 随着实时协作、智能推荐、自动化等功能的增加，需要更强大的实时处理能力和异步通信机制，同时需要应对 MDD 模型可能带来的查询性能问题。
+- **核心决策：** 积极拥抱**事件驱动架构 (EDA)**，并为**读写分离 (CQRS)** 预留接口。这将从根本上提升系统响应速度，并优化复杂查询性能。详细的离线同步与CQRS方案请参阅：[[synchronization-design]]
+- **实施策略：**
+  - **MVP 阶段:** 在模块化单体内部，可以使用 MediatR 等库实现轻量级的进程内消息发布/订阅。
+  - **增长阶段:** 引入 RabbitMQ 或 Kafka 等专业消息队列，支撑更复杂的异步任务和跨服务通信。
+  - **平台阶段:** 正式实施 CQRS，建立为查询优化的“只读数据存储”，从根本上解决 MDD 模型的读取性能挑战。
 
 ### 4. **AI/智能服务集成：独立部署，API调用**
 
@@ -320,20 +129,61 @@ erDiagram
   - **优点：** AI 服务可以独立于核心业务逻辑进行开发、部署和迭代。可以根据需求选择不同的 AI 框架和模型。
   - **实施策略：** 可以将 AI 相关功能封装成独立的模块（可以是微服务，也可以是独立部署的函数服务），通过 API 提供给核心后端服务调用，例如 AI 摘要服务、智能推荐服务、遗忘曲线计算服务。
 
-### 5. **前端架构：组件化与可配置**
+### 5. **前端架构：组件化、可配置与统一自绘 UI (All In Avalonia UI)**
 
-- **挑战：** 随着功能模块的增多，.NET MAUI 应用可能会变得庞大，组件复用和管理变得复杂。
-- **改进建议：** 强化**组件化和可配置**设计。
-  - **优点：** 将前端界面拆分为独立的、可复用的组件。通过配置中心或特性开关，允许用户根据需求启用或禁用特定模块的UI，避免界面臃肿。
+- **核心策略：** 为了实现**极致的 UI 品牌化、跨平台像素一致的 UI 风格**，并提供**卓越的桌面端智能编辑体验**，我们最终决定 **All In Avalonia UI** 作为 FangCun 项目的唯一前端 UI 框架。
+- **挑战：** 随着功能模块的增多，应用可能会变得庞大，组件复用和管理变得复杂。同时，Avalonia UI 在移动端的生态成熟度相对较低。
+- **改进建议：**
+  - **整体框架：Avalonia UI** 作为应用的主体，负责所有平台（Windows, macOS, Linux, iOS, Android）的 UI 渲染、平台适配和底层设备 API 访问。
+  - **优势**:
+    - **极致的 UI 品牌化和一致性**: Avalonia UI 的自绘能力确保了应用在所有平台（移动端和桌面端）上都能实现像素级的品牌化 UI。
+    - **卓越的桌面端智能编辑器**: Avalonia UI 在桌面端的强大表现，结合 AvalonEdit 等组件，完美支持智能编辑器的需求。
+    - **技术栈高度统一**: 整个前端 UI 都使用 C# 和 XAML (Avalonia UI 的 XAML) 来编写和管理的。
+    - **社区活跃**: 积极利用 Avalonia UI 活跃的社区和解决方案。
+  - **组件化与可配置设计：** 强化前端的组件化和可配置设计。将界面拆分为独立的、可复用的组件。通过配置中心或特性开关，允许用户根据需求启用或禁用特定模块的UI，避免界面臃肿。
   - **实施策略：** 从一开始就遵循严格的组件化规范。可以考虑在前端引入插件化机制（例如通过动态加载DLL或WebAssembly模块），但这属于更高级的扩展，可在后期考虑。
 
-### 6. **用户与权限管理：灵活的RBAC模型**
+### 6. **用户与权限管理：灵活的RBAC模型与多端登录**
 
-- **挑战：** 引入付费功能、未来的家庭协作等，需要更细粒度的用户和权限控制。
-- **改进建议：** 采用 **RBAC (Role-Based Access Control)** 模型，并预留扩展到 ABAC (Attribute-Based Access Control) 的能力。
+- **挑战：** 引入付费功能、未来的家庭协作等，需要更细粒度的用户和权限控制。同时，需要支持用户在多个设备上无缝登录与管理。
+- **改进建议：** 采用 **RBAC (Role-Based Access Control)** 模型，并预留扩展到 ABAC (Attribute-Based Access Control) 的能力。我们在 [[database-schema]] 中已经为 `Roles`, `Permissions`, `UserRoles`, `RolePermissions` 表预留了设计。
+  - **多端登录管理**: 通过记录用户登录设备 (`UserDevices` 表，详见 [[database-schema]]) 和会话管理（利用 Redis 等缓存），实现用户对已登录设备的查看和管理，增强安全性和用户体验。
   - **优点：** 能够灵活配置不同用户角色（免费用户、高级用户、家庭成员、管理员）的访问权限，支持更复杂的业务场景。
   - **实施策略：** 在用户管理模块中设计完善的角色、权限、用户组管理功能。
 
+### 7. **数据存储的演进路径与全景图**
+
+为了支撑“全能软件生态”的宏大愿景，FangCun 项目将采用一个多数据库的混合存储策略。在 MVP 阶段，我们将重点使用 PostgreSQL 和 Redis，并为未来的规模化和功能扩展预留了清晰的演进路径。
+
+- **核心业务数据库 (Primary Database - Write Model)**
+  - **MVP 阶段**: **PostgreSQL** (已选定)
+  - **用途**: 存储所有原始、规范化的业务数据，包括 MDD 模型、RBAC 和 UserDevices。作为**单一事实来源**，强调数据一致性、事务支持和可靠性。
+
+- **读模型数据库 (Read Model Database)**
+  - **MVP 阶段**: **PostgreSQL** (利用其 JSONB 类型和非规范化表作为读模型)
+  - **演进路径**: 随着用户量和数据量的增长，以及对全文搜索、复杂聚合报表性能的需求提升，将引入**Elasticsearch** (或类似的搜索引擎) 作为专业的读模型数据库。
+  - **用途**: 存储经过优化、扁平化、非规范化的数据，专为**高性能读取和复杂查询**而设计。
+
+- **缓存数据库 (Caching Database)**
+  - **MVP 阶段**: **Redis** (已选定)
+  - **用途**: 会话管理、热点数据缓存、分布式锁。强调内存存储、读写速度和可重建性。
+
+- **消息队列 (Message Queue)**
+  - **MVP 阶段**: **RabbitMQ** (或轻量级的进程内消息总线)
+  - **用途**: 异步通信、事件总线（CQRS 模式核心）、削峰填谷。强调消息可靠性、持久化和高吞吐量。
+
+- **文件存储 (File Storage)**
+  - **MVP 阶段**: 考虑使用**本地文件系统**或**云存储服务 (如 AWS S3)**
+  - **用途**: 存储用户上传的非结构化数据，如图片、文档附件。强调高可用性、可伸缩性和成本效益。
+
+- **全文搜索索引 (Full-Text Search Index)**
+  - **MVP 阶段**: **PostgreSQL 内置全文搜索** (作为起点)
+  - **演进路径**: 随着搜索需求的复杂化和数据量增长，将引入**Elasticsearch** (或 Apache Solr) 作为专业的全文搜索引擎。
+
+- **度量指标/时序数据库 (Metrics / Time-Series Database)**
+  - **MVP 阶段**: 暂不引入，相关数据可先存储于 PostgreSQL。
+  - **演进路径**: 随着习惯养成、健康管理、系统监控等功能对时序数据分析需求的增加，将引入 **InfluxDB** 或 **Prometheus** 等专业时序数据库。
+
 **总结：**
 
-现有架构为“方寸”的初期发展提供了良好的基础。为了实现“全能软件生态”的宏大愿景，并支持未来不断增长的功能需求，建议在现有基础上逐步采纳上述架构改进建议。这些改进应是迭代式的，根据产品发展阶段和实际需求进行优先级排序和实施。关键在于保持架构的开放性、灵活性和可扩展性，为“方寸”的长期发展奠定坚实基础。
+FangCun 的架构设计遵循**渐进式演进**原则，从 MVP 阶段的精简核心开始，逐步引入更专业、更强大的数据存储解决方案。关键在于保持架构的开放性、灵活性和可扩展性，为“全能软件生态”的长期发展奠定坚实基础。
