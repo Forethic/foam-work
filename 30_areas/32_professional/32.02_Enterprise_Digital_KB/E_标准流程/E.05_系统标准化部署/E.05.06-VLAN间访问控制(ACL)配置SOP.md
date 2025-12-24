@@ -98,6 +98,9 @@ access-list 100 permit ip object-group HZ_SERVERS object-group CM_SERVERS
 ! 允许用户访问打印机
 access-list 100 permit ip object-group CM_USERS object-group CM_IOT
 access-list 100 permit ip object-group HZ_USERS object-group HZ_IOT
+! 允许所有用户访问HZ遗留服务器
+access-list 100 permit ip object-group CM_USERS object-group HZ_LEGACY_SERVERS
+access-list 100 permit ip object-group HZ_USERS object-group HZ_LEGACY_SERVERS
 
 ! ########## 4. 严格隔离策略 ##########
 access-list 100 remark Rule-100_Strict_Zone_Isolation
