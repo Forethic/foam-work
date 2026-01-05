@@ -1,0 +1,30 @@
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器缓存
+.vscode/.history
+.idea/
+
+# 构建输出
+tree_output.txt
+*.log
+
+# Crossnote 缓存
+.crossnote/note-*.md
+.crossnote/*.db
+
+# Foam 临时文件（保留模板）
+.foam/cache/
+
+# 个人笔记（如果有）
+_drafts/
+_personal/
