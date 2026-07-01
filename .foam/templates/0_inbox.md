@@ -1,7 +1,8 @@
 ---
 foam_template:
-  filepath: "00_inbox/$FOAM_DATE_YEAR$FOAM_DATE_MONTH$FOAM_DATE_DATE-$FOAM_TITLE.md"
+  filepath: "inbox/$FOAM_DATE_YEAR$FOAM_DATE_MONTH$FOAM_DATE_DATE-$FOAM_TITLE.md"
 ---
+
 # $FOAM_TITLE
 
 - **标签**: #inbox
